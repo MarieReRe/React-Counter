@@ -1,16 +1,17 @@
 import React from 'react';
-
+import '../sass/Header.scss'
 
 const Header = () => (
-      <header>
-        <nav>
+    <header>
+        <nav className='navigation'>
             <ul>
-                <li> Home </li>
-                <li> About </li>
+                <li><a href='#'>Home</a></li>
+
+                <li><a href='#' >About</a></li>
 
             </ul>
-            </nav>
-      </header>
+        </nav>
+    </header>
 );
-  
-  export default Header;
+
+export default Header;

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import React from 'react';
+import '../sass/Main.scss';
 
 
 //main 
@@ -7,13 +7,17 @@ class Main extends React.Component {
     constructor(props) {
         // Just do this, don't ask why yet
         super(props);
-
-        // The only time you can assign this.state
+        //Text input
+        this.textInput = React.createRef();
+        // The only time you can assign this.state this also set base state..i think
         this.state = {
             count: 0,
             value: 0,
             colorClass: "zero",
+            name: "",
         };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     // Event Handling is fun
@@ -46,34 +50,36 @@ class Main extends React.Component {
         this.setState({ count });
         var value = 0;
         this.setState({ value });
+
+        this.setState({ name: this.textInput.current.value });
     }
     colorChange = (previousCount, count) => {
-        var colorChange;
+        var colorClass;
 
         //negative 
-        if (previousCount === 0 && count < 0) {
-            colorChange = "negative";
-            this.setState({ colorChange });
+        if (count < 0) {
+            colorClass = "negative";
+            this.setState({ colorClass });
         }
         //zero
         else if (count === 0) {
-            colorChange = "zero";
-            this.setState({ colorChange });
+            colorClass = "zero";
+            this.setState({ colorClass });
         }
         //between 1-10
-        else if (previousCount === 0 && count > 0 && count < 10) {
-            colorChange = "betweenOneAndTen";
-            this.setState({ colorChange });
+        else if (count > 0 && count < 10) {
+            colorClass = "betweenOneAndTen";
+            this.setState({ colorClass });
         }
         //10-20
         else if (previousCount === 10 && count > 10 && count < 20) {
-            colorChange = "betweenOneAndTen";
-            this.setState({ colorChange });
+            colorClass = "betweenTenAndTwenty";
+            this.setState({ colorClass });
         }
         //20-30
         else if (previousCount === 20 && count > 20 && count < 30) {
-            colorChange = "betweenOneAndTen";
-            this.setState({ colorChange });
+            colorClass = "betweenTwentyAndThirty";
+            this.setState({ colorClass });
         }
         //30-40
         //40-50
@@ -99,16 +105,54 @@ class Main extends React.Component {
 
         // Stretch form goal
         return (
+            <body>
+                <main>
 
-            <div className="wrapper">
-                <div className="Name">
-                
-                </div>
-                <h2>Main!</h2>
-                <h3 className={this.state.colorClass}>the Count = {this.state.count}</h3>
-                <button id="increase" onClick={this.IncreaseClick}>Click To Increase!</button>
-                <button id="decrease" onClick={this.DecreaseClick}>Click To Decrease!</button>
-            </div>
+                    <div className="wrapper">
+                        <div>
+
+                        </div>
+                        <h2>Welcome to the Clicker! </h2>
+
+                        <div className="FormBox">
+
+                            <form className="form" onSubmit={this.handleSubmit}>
+                                <div class="field">
+                                    <label for="name-1">Who Are you? </label>
+                                    <div class="control">
+                                        <input
+                                            type="text"
+                                            ref={this.textInput}
+                                            name="name-1"
+                                            class="input"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control">
+                                        <button class="nameButton">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <button id="increase" onClick={this.IncreaseClick}>Click To Increase!</button>
+                            <button id="decrease" onClick={this.DecreaseClick}>Click To Decrease!</button>
+
+
+
+                        </div>
+
+
+
+                        <h3 className={this.state.colorClass}>You have clicked {this.state.count} times <span> {!!this.state.name ? this.state.name :"" }!</span></h3>
+
+                    </div>
+
+                </main>
+
+
+            </body>
+
+
         )
     }
 }

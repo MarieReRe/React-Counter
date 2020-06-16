@@ -7,6 +7,7 @@ import Main from './components/Main';
 
 
 
+
 //app rendering using different components
 class App extends React.Component{
   render() {

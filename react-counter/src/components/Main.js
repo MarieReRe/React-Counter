@@ -44,6 +44,7 @@ class Main extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        //This resets the counter when you change your name. 
         var previousCount = this.state.count;
         var count = this.state.value;
         this.colorChange(previousCount, count);
@@ -91,8 +92,6 @@ class Main extends React.Component {
     }
     render() {
         // Re-rendering is automatic when state changes
-
-
         // Stretch form goal
         return (
             <body>
@@ -111,10 +110,7 @@ class Main extends React.Component {
                                     <label for="name-1">Who are you? </label>
                                     <div class="control">
                                         <input
-                                            type="text"
-                                            ref={this.textInput}
-                                            name="name-1"
-                                            class="input"
+                                            type="text" ref={this.textInput} name="name-1" class="input"
                                         />
                                     </div>
                                 </div>

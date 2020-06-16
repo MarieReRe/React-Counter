@@ -89,16 +89,6 @@ class Main extends React.Component {
 
 
     }
-
-
-
-
-
-
-
-
-
-
     render() {
         // Re-rendering is automatic when state changes
 
@@ -118,7 +108,7 @@ class Main extends React.Component {
 
                             <form className="form" onSubmit={this.handleSubmit}>
                                 <div class="field">
-                                    <label for="name-1">Who Are you? </label>
+                                    <label for="name-1">Who are you? </label>
                                     <div class="control">
                                         <input
                                             type="text"
@@ -129,13 +119,18 @@ class Main extends React.Component {
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <div class="control">
+                                    <div className="control">
                                         <button class="nameButton">Save</button>
+
                                     </div>
+                                    <div className = "clicker-buttons">
+                                        <button  onClick={this.IncreaseClick}>Click To Increase!</button>
+                                        <button onClick={this.DecreaseClick}>Click To Decrease!</button>
+                                    </div>
+                                    <h3 className={this.state.colorClass}>You have clicked {this.state.count} times <span> {!!this.state.name ? this.state.name : ""}!</span></h3>
                                 </div>
                             </form>
-                            <button id="increase" onClick={this.IncreaseClick}>Click To Increase!</button>
-                            <button id="decrease" onClick={this.DecreaseClick}>Click To Decrease!</button>
+
 
 
 
@@ -143,7 +138,7 @@ class Main extends React.Component {
 
 
 
-                        <h3 className={this.state.colorClass}>You have clicked {this.state.count} times <span> {!!this.state.name ? this.state.name :"" }!</span></h3>
+                       
 
                     </div>
 

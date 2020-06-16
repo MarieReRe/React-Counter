@@ -109,38 +109,23 @@ class Main extends React.Component {
                                 <div class="field">
                                     <label for="name-1">Who are you? </label>
                                     <div class="control">
-                                        <input
-                                            type="text" ref={this.textInput} name="name-1" class="input"
-                                        />
+                                        <input type="text" ref={this.textInput} name="name-1" class="input" />
                                     </div>
                                 </div>
                                 <div class="field">
                                     <div className="control">
                                         <button class="nameButton">Save</button>
-
                                     </div>
-                                    <div className = "clicker-buttons">
-                                        <button  onClick={this.IncreaseClick}>Click To Increase!</button>
+                                    <div className="clicker-buttons">
+                                        <button onClick={this.IncreaseClick}>Click To Increase!</button>
                                         <button onClick={this.DecreaseClick}>Click To Decrease!</button>
                                     </div>
                                     <h3 className={this.state.colorClass}>You have clicked {this.state.count} times <span> {!!this.state.name ? this.state.name : ""}!</span></h3>
                                 </div>
                             </form>
-
-
-
-
                         </div>
-
-
-
-                       
-
                     </div>
-
                 </main>
-
-
             </body>
 
 

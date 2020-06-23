@@ -1,0 +1,45 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f4c2c2;
+
+  main {
+    text-align: center;
+
+    .negative {
+      color: aqua;
+    }
+    .zero {
+      color: #50c878;
+    }
+    .betweenOneAndTen {
+      color: red;
+    }
+    .betweenTenAndTwenty {
+      color: orange;
+    }
+    .betweenTwentyAndThirty {
+      color: yellow;
+    }
+    .clicker-buttons button {
+      border-radius: 3px;
+     border: ridge plum;
+      margin: 3px;
+    }
+    .nameButton {
+      background-color: rgb(166, 255, 255);
+      border-radius: 25px;
+    }
+    form {
+      background: 	#c4ffd7;
+      width: 450px;
+      margin: 50px auto;
+      padding: 50px;
+      border-radius: 5px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+    }
+    
+  }
+}
